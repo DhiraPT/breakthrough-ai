@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+# Breakthrough AI (6x6)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Breakthrough is an abstract strategy board game invented by Dan Troyka in 2000 and made available as a Zillions of Games file. [(source)](https://en.wikipedia.org/wiki/Breakthrough_(board_game)) The goal is to be the first player to move one of your pieces from your starting row to your opponent's back row or capture all the opponent's pieces.
 
-Currently, two official plugins are available:
+### Game rules:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Players take turns moving one piece per turn.
+- Pieces can only move forward one space per turn, either straight or diagonally, in the direction facing the opponent's side.
+- Capturing occurs when a player's piece moves diagonally to a tile occupied by an opponent's piece.
+- Stacking is not allowed. Only one piece can occupy a space at a time.
 
-## Expanding the ESLint configuration
+## AI Player
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The AI player utilizes the following algorithms and techniques:
 
-- Configure the top-level `parserOptions` property like this:
+- Iterative Deepening Alpha-Beta Pruning (Negamax)
+- Transposition Table
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Evaluation Function
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The AI leverages a sophisticated evaluation function to assess the current game state and guide its decision-making. This function considers various factors, assigning them weights based on their strategic importance:
+
+- **Piece Distance to Goal**: This evaluates how close each piece is to reaching the opponent's back row.
+- **Piece Count**: The remaining number of pieces for each player.
+- **Capture Potential**: The ability to capture opponent's pieces.
+- **Diagonal Chain Formation**: The potential to create diagonal chains of pieces.
+- **Near-Win State**: When a piece is close to winning and cannot be blocked or captured.
+- **Center Control**: While not the most crucial factor in Breakthrough, maintaining some presence in the center can offer tactical advantages.
