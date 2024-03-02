@@ -51,6 +51,7 @@ function App() {
       />
       <button onClick={handleReset}>Reset</button>
       <button onClick={() => setPlayer(player === "W" ? "B" : "W")}>Switch Player</button>
+      <p>Source code: <a href="https://github.com/DhiraPT/breakthrough-ai">https://github.com/DhiraPT/breakthrough-ai</a></p>
     </>
   );
 }
