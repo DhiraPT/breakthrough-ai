@@ -2,7 +2,11 @@
 
 Breakthrough is an abstract strategy board game invented by Dan Troyka in 2000 and made available as a Zillions of Games file. [(source)](https://en.wikipedia.org/wiki/Breakthrough_(board_game)) The goal is to be the first player to move one of your pieces from your starting row to your opponent's back row or capture all the opponent's pieces.
 
-### Game rules:
+### Link to the Game
+
+https://breakthrough-ai.vercel.app
+
+### Game Rules:
 
 - Players take turns moving one piece per turn.
 - Pieces can only move forward one space per turn, either straight or diagonally, in the direction facing the opponent's side.
