@@ -26,8 +26,8 @@ const Game = ({
   player,
   setWinner,
 }: GameProps) => {
-  const width = 800;
-  const height = 800;
+  const width = 500;
+  const height = 500;
   const tileWidth = width / SIZE;
   /**
    * PlayerAI will switch to the player's color
