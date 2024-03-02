@@ -120,7 +120,7 @@ const Game = ({
         setIsPlayerTurn(true);
       }, 20);
     }
-  }, [isPlayerTurn]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isPlayerTurn, isGameOver, board, player, setIsPlayerTurn]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (board.length > 0) {
@@ -134,11 +134,13 @@ const Game = ({
   }, [board, player, setIsGameOver, setIsPlayerTurn, setWinner]);
 
   useEffect(() => {
-    setBoard(Utils.createBoard(player));
-    setSelectedPiece(null);
-    setPossibleDsts([]);
-    setLastMove(null);
-  }, [player]);
+    if (!isGameOver) {
+      setBoard(Utils.createBoard(player));
+      setSelectedPiece(null);
+      setPossibleDsts([]);
+      setLastMove(null);
+    }
+  }, [player, isGameOver]);
 
   return (
     <Stage

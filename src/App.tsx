@@ -21,6 +21,18 @@ function App() {
     setWinner(null);
   }, [player]);
 
+  const handleReset = () => {
+    setIsGameOver(true);
+    setWinner(null);
+  };
+
+  useEffect(() => {
+    if (isGameOver && winner === null) {
+      setIsPlayerTurn(player === "W" ? true : false);
+      setIsGameOver(false);
+    }
+  }, [isGameOver, winner, player]);
+
   return (
     <>
       <Game
@@ -37,6 +49,7 @@ function App() {
         player={player}
         winner={winner}
       />
+      <button onClick={handleReset}>Reset</button>
       <button onClick={() => setPlayer(player === "W" ? "B" : "W")}>Switch Player</button>
     </>
   );
